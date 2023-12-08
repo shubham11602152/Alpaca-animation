@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Roboto+Condensed:wght@300&display=swap");
 
 :root {
-  font-size: 20px;
+  font-size: 16px;
   --light_gray: #ffffff;
   --dark_gray: #acacac;
   --dark_brown: #774300;
@@ -79,6 +79,7 @@ h5 {
   animation-timing-function: var(--bezier);
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  z-index: 50;
 }
 
 @keyframes jumping-anim {
@@ -355,7 +356,7 @@ h5 {
 }
 
 .lL .leg {
-  background: rgba(255, 255, 255, 0.678);
+  background: rgb(238, 238, 238);
 }
 
 .leg {
@@ -391,11 +392,84 @@ h5 {
   background-color: #0b3847;
   animation: move 2s linear infinite;
   border-radius: 0.25rem;
+  z-index: 50;
+}
+.bg,
+.fg {
+  display: flex;
+  transform: translate(-50%);
+  width: 200vw;
+  height: 100%;
+  animation: scene-anim 8s linear infinite;
+}
+.fg {
+  position: absolute;
+  top: 0;
+  z-index: 300;
+
+  animation: scene-anim 5s linear infinite;
+}
+.bg .scene,
+.fg .scene {
+  position: relative;
+  width: 100vw;
+}
+
+@keyframes scene-anim {
+  from {
+    transform: translate(-50%);
+  }
+  to {
+    transform: translate(0%);
+  }
+}
+.scene .tree {
+  position: absolute;
+  bottom: 100%;
+  width: 20px;
+  height: 20vh;
+  background-color: #0b3847;
+  z-index: -1;
+}
+.tree::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  width: 150px;
+  max-width: 15vw;
+  aspect-ratio: 1/2;
+  background-color: #b8d1da;
+  border-radius: 1rem;
+}
+#tree2 {
+  left: 60%;
+}
+#tree2::before {
+  width: 100px;
+  max-width: 15vw;
+}
+#tree3 {
+  left: 20%;
+}
+#tree3::before {
+  width: 200px;
+  max-width: 20vw;
+}
+#fg {
+  left: 70%;
+  bottom: 0%;
+  z-index: 100;
+  filter: blur(2px);
+}
+#fg::before {
+  max-width: 25vw;
 }
 
 @keyframes move {
   from {
-    transform: translate(-800%, 0);
+    transform: translate(-100%, 0);
   }
   to {
     transform: translate(100vw, 0);
@@ -403,7 +477,10 @@ h5 {
 }
 
 @media only screen and (max-width: 600px) {
+  :root {
+    font-size: 20px;
+  }
   .ground .block {
-    width: 80px;
+    width: 65px;
   }
 }
