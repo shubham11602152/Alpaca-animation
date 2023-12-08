@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@0,300;0,700;1,300&family=Roboto+Condensed:wght@300&display=swap");
 
 :root {
-  font-size: 16px;
+  font-size: 20px;
   --light_gray: #ffffff;
   --dark_gray: #acacac;
   --dark_brown: #774300;
@@ -86,7 +86,7 @@ h5 {
     transform: translate(0, 0) rotate(-10deg);
   }
   100% {
-    transform: translate(0, -40%) rotate(15deg);
+    transform: translate(0, -50%) rotate(15deg);
   }
 }
 
@@ -385,7 +385,7 @@ h5 {
   position: absolute;
   left: 0;
   bottom: 100%;
-  width: 70px;
+  width: 90px;
   aspect-ratio: 1/1;
   transform: translate(-300%, 0);
   background-color: #0b3847;
@@ -399,5 +399,11 @@ h5 {
   }
   to {
     transform: translate(100vw, 0);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ground .block {
+    width: 80px;
   }
 }
